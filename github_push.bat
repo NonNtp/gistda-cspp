@@ -19,5 +19,5 @@ set "timestamp=%YYYY%%MM%%DD%_%HH%%MIN%%SEC%"
 cd /d "C:/Users/darkn/Downloads/GISTDA/Spring/cspp"
 
 git add .
-git commit -m "%timestamp%"
+git commit -m "commit at %timestamp%"
 git push origin main

@@ -52,7 +52,6 @@ public class BootstrapData implements CommandLineRunner {
                         .dataDate(afModCsvRecord.getDataDate())
                         .build());
             });
-
         }
     }
 

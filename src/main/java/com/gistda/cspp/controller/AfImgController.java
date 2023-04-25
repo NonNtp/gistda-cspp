@@ -15,6 +15,7 @@ import java.util.List;
 @RestController
 public class AfImgController {
     public static final String AFIMG_PATH = "/api/v1/afimg" ;
+    public static final String AFIMG_DATE_PATH = "/api/v1/afimg/date" ;
     private final AfImgService afImgService ;
 
     @GetMapping(AFIMG_PATH)
@@ -22,6 +23,10 @@ public class AfImgController {
                                     @RequestParam(required = false) Double longitude,
                                     @RequestParam(required = false) LocalDate dataDate)  {
         return afImgService.listAfImg(latitude,longitude,dataDate);
+    }
+    @GetMapping(AFIMG_DATE_PATH)
+    public List<LocalDate> listAfImgOnlyDate() {
+        return afImgService.findAllGroupByDataDate();
     }
 
 }

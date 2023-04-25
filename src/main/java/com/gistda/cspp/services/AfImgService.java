@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface AfImgService {
     List<AfImgDTO> listAfImg(Double latitude , Double longitude , LocalDate dataDate) ;
+    List<LocalDate> findAllGroupByDataDate() ;
 
 }

@@ -33,4 +33,9 @@ public class AfImgServiceImpl implements AfImgService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<LocalDate> findAllGroupByDataDate() {
+        return afImgRepository.findAllGroupByDataDate();
+    }
+
 }

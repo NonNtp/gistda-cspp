@@ -19,4 +19,5 @@ public class AfImgDTO {
     private Double firePower ;
     private Integer persistentAnomaly ;
     private LocalDate dataDate ;
+    private String province ;
 }

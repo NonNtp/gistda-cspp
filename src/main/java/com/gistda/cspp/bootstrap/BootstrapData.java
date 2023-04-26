@@ -21,10 +21,10 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class BootstrapData implements CommandLineRunner {
-    private final AfImgRepository afImgRepository ;
-    private final AfImgCsvService afImgCsvService ;
-    private final AfModRepository afModRepository ;
-    private final AfModCsvService afModCsvService ;
+    private final AfImgRepository afImgRepository;
+    private final AfImgCsvService afImgCsvService;
+    private final AfModRepository afModRepository;
+    private final AfModCsvService afModCsvService;
 
     @Transactional
     @Override
@@ -33,11 +33,11 @@ public class BootstrapData implements CommandLineRunner {
         loadAfModCsvData();
     }
 
-    private void loadAfModCsvData() throws FileNotFoundException{
+    private void loadAfModCsvData() throws FileNotFoundException {
         if (afModRepository.count() < 10) {
             File file = ResourceUtils.getFile("classpath:csv/afmod.csv");
 
-            List<AfModCsvRecord> recs1 = afModCsvService.convertAfModCsv(file) ;
+            List<AfModCsvRecord> recs1 = afModCsvService.convertAfModCsv(file);
 
             recs1.forEach(afModCsvRecord -> {
                 afModRepository.save(AfMod.builder()
@@ -55,11 +55,11 @@ public class BootstrapData implements CommandLineRunner {
         }
     }
 
-    private void loadAfImgCsvData() throws FileNotFoundException{
+    private void loadAfImgCsvData() throws FileNotFoundException {
         if (afImgRepository.count() < 10) {
             File file = ResourceUtils.getFile("classpath:csv/afimg.csv");
 
-            List<AfImgCsvRecord> recs2 = afImgCsvService.convertAfImgCsv(file) ;
+            List<AfImgCsvRecord> recs2 = afImgCsvService.convertAfImgCsv(file);
 
             recs2.forEach(afImgCsvRecord -> {
                 afImgRepository.save(AfImg.builder()
@@ -73,6 +73,7 @@ public class BootstrapData implements CommandLineRunner {
                         .firePower(afImgCsvRecord.getFirePower())
                         .persistentAnomaly(afImgCsvRecord.getPersistentAnomaly())
                         .dataDate(afImgCsvRecord.getDataDate())
+                        .province(afImgCsvRecord.getProvince())
                         .build());
             });
         }

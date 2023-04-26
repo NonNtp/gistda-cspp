@@ -33,4 +33,6 @@ public class AfImgCsvRecord {
     @CsvBindByName(column = "date")
     @CsvDate("yyyy-MM-dd")
     private LocalDate dataDate ;
+    @CsvBindByName(column = "province")
+    private String province ;
 }

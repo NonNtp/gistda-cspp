@@ -36,4 +36,6 @@ public class AfImg {
     private Integer persistentAnomaly ;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate dataDate ;
+
+    private String province ;
 }
